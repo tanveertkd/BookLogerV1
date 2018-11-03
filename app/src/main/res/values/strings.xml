@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BookLog</string>
+    <string name="action_text">Test</string>
+    <string name="title_activity_editor">Add a Book</string>
+</resources>
