@@ -1,5 +1,45 @@
 <resources>
     <string name="app_name">BookLog</string>
+    <!--Menu-->
+    <string name="action_delete_all_books">Clear Database</string>
     <string name="action_text">Test</string>
+    <string name="delete_item">Delete</string>
+    <string name="save_item">Save</string>
     <string name="title_activity_editor">Add a Book</string>
+    <string name="empty_view_title_text">Hmm, seems like we are a bit empty at the moment.</string>
+    <string name="empty_view_subtitle_text">Please check back in some time.</string>
+    <!--Editor Activity Strings-->
+    <string name="book_name_field">Name</string>
+    <string name="price_field">Price</string>
+    <string name="quantity_field">Quantity</string>
+    <string name="supplier_field">Supplier</string>
+    <string name="supplier_contact">Supplier Contact</string>
+    <string name="name_hint">Book Name</string>
+    <string name="price_hint">Book Price</string>
+    <string name="quantity_hint">Book Quantity</string>
+    <string name="supplier_hint">Supplier Name</string>
+    <string name="supplier_phone_hint">Supplier Contact</string>
+    <string name="fill_all">You must fill all the fields.</string>
+    <string name="insert_book_failed">Error while saving book.</string>
+    <string name="insert_book_successful">Book Saved</string>
+    <string name="update_failed">Update Failed</string>
+    <string name="update_successful">Update Successful</string>
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+    <string name="discard">Discard</string>
+    <string name="keep_editing">Keep Editing</string>
+    <string name="delete_dialog_msg">Delete this Book?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_book_failed">Error with deleting book</string>
+    <string name="delete_book_successful">Book deleted</string>
+    <string name="add_book">Add Book</string>
+    <string name="edit_book">Edit Book</string>
+    <string name="proceed">Proceed with deleting all the books?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="not_sold">Error Selling Book</string>
+    <string name="sold">Book Sold Successfully</string>
+    <string name="out_of_stock">Out Of Stock</string>
+    <string name="stock">In Stock</string>
+    <string name="button_label">Sell</string>
 </resources>

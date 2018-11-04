@@ -133,7 +133,7 @@ public class BookProvider extends ContentProvider {
             case BOOKS:
                 return updateBookDb(uri, contentValues, selection, selectionArgs);
             case BOOK_ID:
-                selection = BookEntry._ID + "+?";
+                selection = BookEntry._ID + "=?";
                 selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
 
                 return updateBookDb(uri, contentValues, selection, selectionArgs);
@@ -152,7 +152,7 @@ public class BookProvider extends ContentProvider {
         }
 
         if(contentValues.containsKey(BookEntry.COLUMN_BOOK_PRICE)){
-            Integer price = contentValues.getAsInteger(BookEntry.COLUMN_BOOK_PRICE);
+            Float price = contentValues.getAsFloat(BookEntry.COLUMN_BOOK_PRICE);
             if (price == null || price < 0) {
                 throw new IllegalArgumentException("The book needs to be priced");
             }
