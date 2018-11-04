@@ -48,5 +48,34 @@ public class BookCursorAdapter extends CursorAdapter {
         nameView.setText(bookName);
         priceView.setText(String.valueOf(bookPrice));
         quantityView.setText(String.valueOf(bookQuantity));
+
+        buttonView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (bookQuantity > 0)
+                {
+                    int updatedQuantity = bookQuantity - 1;
+
+                    ContentValues values = new ContentValues();
+                    values.put(BookEntry.COLUMN_BOOK_QUANTITY, updatedQuantity);
+
+                    Uri currentBookUri = ContentUris.withAppendedId(BookEntry.CONTENT_URI, bookID);
+                    int rowAffected = context.getContentResolver().update(currentBookUri, values, null, null);
+
+                    if (rowAffected == 0)
+                    {
+                        Toast.makeText(context, R.string.not_sold, Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(context, R.string.sold, Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(context, R.string.out_of_stock, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
