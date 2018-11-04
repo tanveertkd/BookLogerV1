@@ -37,9 +37,10 @@
     <string name="proceed">Proceed with deleting all the books?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="not_sold">Error Selling Book</string>
+    <string name="not_sold">Oops! Something went wrong.</string>
     <string name="sold">Book Sold Successfully</string>
     <string name="out_of_stock">Out Of Stock</string>
     <string name="stock">In Stock</string>
     <string name="button_label">Sell</string>
+    <string name="undo">Undo</string>
 </resources>

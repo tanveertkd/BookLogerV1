@@ -5,6 +5,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import com.example.baseplate.booklog.data.ContractHelper.BookEntry;
 
 public class BookCursorAdapter extends CursorAdapter {
     private Context mContext;
+    private static final String LOG_TAG = BookCursorAdapter.class.getSimpleName();
     public BookCursorAdapter(Context context, Cursor c) {
         super(context, c);
         mContext = context;
@@ -44,6 +47,8 @@ public class BookCursorAdapter extends CursorAdapter {
         String bookName = cursor.getString(nameColumnIndex);
         int bookPrice = cursor.getInt(priceColumnIndex);
         final int bookQuantity = cursor.getInt(quantityColumnIndex);
+        final int newQuantity = bookQuantity - 1;
+        Log.e( LOG_TAG, "Current: " + bookQuantity + "new: " + newQuantity);
 
         nameView.setText(bookName);
         priceView.setText(String.valueOf(bookPrice));
@@ -52,28 +57,34 @@ public class BookCursorAdapter extends CursorAdapter {
         buttonView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (bookQuantity > 0)
+                if (newQuantity >= 0)
                 {
-                    int updatedQuantity = bookQuantity - 1;
-
-                    ContentValues values = new ContentValues();
-                    values.put(BookEntry.COLUMN_BOOK_QUANTITY, updatedQuantity);
-
-                    Uri currentBookUri = ContentUris.withAppendedId(BookEntry.CONTENT_URI, bookID);
+                    final ContentValues values = new ContentValues();
+                    values.put(BookEntry.COLUMN_BOOK_QUANTITY, newQuantity);
+                    final Uri currentBookUri = ContentUris.withAppendedId(BookEntry.CONTENT_URI, bookID);
                     int rowAffected = context.getContentResolver().update(currentBookUri, values, null, null);
 
                     if (rowAffected == 0)
                     {
-                        Toast.makeText(context, R.string.not_sold, Toast.LENGTH_SHORT).show();
+                        Snackbar.make(view, R.string.not_sold, Snackbar.LENGTH_SHORT).show();
                     }
                     else
                     {
-                        Toast.makeText(context, R.string.sold, Toast.LENGTH_SHORT).show();
+                        Snackbar snackbar = Snackbar.make(view, R.string.sold, Snackbar.LENGTH_LONG).setAction(R.string.undo, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                ContentValues contentValues = new ContentValues();
+                                contentValues.put(BookEntry.COLUMN_BOOK_QUANTITY, bookQuantity);
+                                Uri currentBook = ContentUris.withAppendedId(BookEntry.CONTENT_URI, bookID);
+                                context.getContentResolver().update(currentBook, contentValues, null, null);
+                            }
+                        });
+                        snackbar.show();
                     }
                 }
                 else
                 {
-                    Toast.makeText(context, R.string.out_of_stock, Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view, R.string.out_of_stock, Snackbar.LENGTH_SHORT).show();
                 }
             }
         });
