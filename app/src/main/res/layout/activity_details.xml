@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditorActivity"
+    android:padding="@dimen/parent_activity_margin"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/details_book_container"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_marginBottom="15dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/book_name_field"
+            android:textSize="18dp"/>
+        <TextView
+            android:id="@+id/details_name_field"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            tools:text="@string/book_name_field"
+            android:layout_marginBottom="15dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/details_price_container"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/price_field"
+            android:layout_marginBottom="15dp"
+            android:textSize="18dp"/>
+        <TextView
+            android:id="@+id/details_price_field"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="15dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/details_quantity_container"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/quantity_field"
+            android:layout_marginBottom="15dp"
+            android:textSize="18dp"/>
+        <TextView
+            android:id="@+id/details_quantity_field"
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:layout_marginBottom="15dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="end">
+
+            <Button
+                android:id="@+id/increment_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/increment"
+                android:backgroundTint="@color/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/details_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                tools:text="10" />
+
+            <Button
+                android:id="@+id/decrement_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/decrement"
+                android:backgroundTint="@color/colorPrimary"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/details_supplier_container"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical" >
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/supplier_field"
+            android:layout_marginBottom="15dp"
+            android:textSize="18dp"/>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:paddingLeft="4dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/details_supplier_name_field"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="15dp"/>
+            <TextView
+                android:id="@+id/details_supplier_phone"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="15dp"/>
+            <Button
+                android:id="@+id/details_call_button"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="@string/call_supplier"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -6,6 +6,7 @@
     <string name="delete_item">Delete</string>
     <string name="save_item">Save</string>
     <string name="title_activity_editor">Add a Book</string>
+    <string name="title_activity_details">Book Details</string>
     <string name="empty_view_title_text">Hmm, seems like we are a bit empty at the moment.</string>
     <string name="empty_view_subtitle_text">Please check back in some time.</string>
     <!--Editor Activity Strings-->
@@ -43,4 +44,10 @@
     <string name="stock">In Stock</string>
     <string name="button_label">Sell</string>
     <string name="undo">Undo</string>
+    <!--Details Menu-->
+    <string name="save_book">Save</string>
+    <string name="delete_book">Delete</string>
+    <string name="increment">+</string>
+    <string name="decrement">-</string>
+    <string name="call_supplier">Call the supplier</string>
 </resources>
